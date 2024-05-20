@@ -59,7 +59,7 @@
     NSLog(@"decompressedHexString9: %@\n", decompressedHexString9);
     NSLog(@"decompressedString9: %@\n", decompressedString9);
     
-    self.textView.text = [NSString stringWithFormat:@"originalString: %@\n originalHexString: %@\n decompressedHexString:%@ compressedHexString:%@\n decompressedString:%@\n compressedHexString3:%@\n decompressedHexString3:%@\n decompressedString3:%@\n compressedHexString9:%@\n decompressedHexString9:%@ decompressedString9:%@",originalString,originalHexString,compressedHexString,decompressedHexString,decompressedString,compressedHexString3,decompressedHexString3,decompressedString3,compressedHexString9,decompressedHexString9,decompressedString9];
+    self.textView.text = [NSString stringWithFormat:@"originalString: %@\n originalHexString: %@\n decompressedHexString:%@ compressedHexString:%@\n decompressedString:%@\n ------------------------\n compressedHexString3:%@\n decompressedHexString3:%@\n decompressedString3:%@\n ------------------------\n compressedHexString9:%@\n decompressedHexString9:%@ decompressedString9:%@",originalString,originalHexString,compressedHexString,decompressedHexString,decompressedString,compressedHexString3,decompressedHexString3,decompressedString3,compressedHexString9,decompressedHexString9,decompressedString9];
     
 }
 
