@@ -12,6 +12,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
 @end
 
 @implementation ViewController
@@ -31,22 +33,33 @@
     NSString *decompressedHexString = [self hexStringFromData:decompressedData];
 
 
-    NSLog(@"原始字符串originalString: %@\n", originalString);
-    NSLog(@"原始hex字符串originalHexString: %@\n", originalHexString);
-    NSLog(@"压缩后hex字符串compressedHexString: %@\n", compressedHexString);
-    NSLog(@"解压后hex字符串decompressedHexString: %@\n", decompressedHexString);
-    NSLog(@"解压缩后字符串decompressedString: %@\n", decompressedString);
+    NSLog(@"originalString: %@\n", originalString);
+    NSLog(@"originalHexString: %@\n", originalHexString);
+    NSLog(@"compressedHexString: %@\n", compressedHexString);
+    NSLog(@"decompressedHexString: %@\n", decompressedHexString);
+    NSLog(@"decompressedString: %@\n", decompressedString);
     
     NSData *compressedData3 = [self compressData:originalData withLevel:Z_RLE];
     NSData *decompressedData3 = [self decompressData:compressedData3];
+    NSString *decompressedString3 = [[NSString alloc] initWithData:decompressedData3 encoding:NSUTF8StringEncoding];
     NSData *compressedData9 = [self compressData:originalData withLevel:Z_BEST_COMPRESSION];
     NSData *decompressedData9 = [self decompressData:compressedData9];
+    NSString *decompressedString9 = [[NSString alloc] initWithData:decompressedData9 encoding:NSUTF8StringEncoding];
     
+    NSString *compressedHexString3 = [self hexStringFromData:compressedData3];
     NSString *decompressedHexString3 = [self hexStringFromData:decompressedData3];
+    
+    NSString *compressedHexString9 = [self hexStringFromData:compressedData9];
     NSString *decompressedHexString9 = [self hexStringFromData:decompressedData9];
     
-    NSLog(@"解压后hex字符串decompressedHexString3: %@\n", decompressedHexString3);
-    NSLog(@"解压后hex字符串decompressedHexString9: %@\n", decompressedHexString9);
+    NSLog(@"compressedHexString3: %@\n", compressedHexString3);
+    NSLog(@"decompressedHexString3: %@\n", decompressedHexString3);
+    NSLog(@"decompressedString3: %@\n", decompressedString3);
+    NSLog(@"compressedHexString9: %@\n", compressedHexString9);
+    NSLog(@"decompressedHexString9: %@\n", decompressedHexString9);
+    NSLog(@"decompressedString9: %@\n", decompressedString9);
+    
+    self.textView.text = [NSString stringWithFormat:@"originalString: %@\n originalHexString: %@\n decompressedHexString:%@ compressedHexString:%@\n decompressedString:%@\n compressedHexString3:%@\n decompressedHexString3:%@\n decompressedString3:%@\n compressedHexString9:%@\n decompressedHexString9:%@ decompressedString9:%@",originalString,originalHexString,compressedHexString,decompressedHexString,decompressedString,compressedHexString3,decompressedHexString3,decompressedString3,compressedHexString9,decompressedHexString9,decompressedString9];
     
 }
 
